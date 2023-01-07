@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 actix-web = "4"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+serde = { version = "1", features = ["derive"]}
 
 [lib]
 path = "src/lib.rs"
@@ -22,3 +23,15 @@ name = "zero2prod"
 
 [dev-dependencies]
 reqwest = "0.11.13"
+
+[dependencies.sqlx]
+version = "0.6.2"
+default-features = false
+features = [
+    "runtime-actix-rustls", 
+    "macros", 
+    "postgres", 
+    "uuid", 
+    "chrono", 
+    "migrate"
+]
